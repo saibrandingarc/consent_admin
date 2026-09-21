@@ -28,7 +28,7 @@ jobs:
         run: |
           pnpm install
           pnpm build
-          pnpm deploy --prod ./azure-admin
+          pnpm --filter=consent_admin deploy --prod ./azure-admin
           bash deploy/azure/assemble.sh
       - uses: azure/webapps-deploy@v3.0.8
         with:
