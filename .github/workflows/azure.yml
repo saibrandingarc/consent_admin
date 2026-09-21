@@ -33,5 +33,5 @@ jobs:
       - uses: azure/webapps-deploy@v3.0.8
         with:
           app-name: ${{ vars.AZURE_ADMIN_APP || 'consentadmin' }}
-          package: azure-site-admin
+          package: azure-site-admin.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE || secrets.AZUREAPPSERVICE_PUBLISHPROFILE_228AA8B298984C4BBA01BB4A588384DC }}

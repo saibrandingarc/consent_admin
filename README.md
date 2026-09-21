@@ -18,4 +18,6 @@ pnpm dev   # http://localhost:3001
 Node **22** Linux Web App `consentadmin`:
 https://consentadmin-fwb7gmeybmhwhyd0.eastus2-01.azurewebsites.net
 
+Startup command: `node start-next.js`.
+
 Calls API `https://consentapi-abgrbph5cfccbxe0.eastus2-01.azurewebsites.net/api/v1`. Secret `AZUREAPPSERVICE_PUBLISHPROFILE`. App name default `consentadmin`.
