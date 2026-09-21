@@ -34,4 +34,4 @@ jobs:
         with:
           app-name: ${{ vars.AZURE_ADMIN_APP || 'consentadmin' }}
           package: azure-site-admin
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE || secrets.AZUREAPPSERVICE_PUBLISHPROFILE_228AA8B298984C4BBA01BB4A588384DC }}

@@ -1,6 +1,6 @@
 # consent_admin
 
-Independent admin UI. It only talks to **consent_api** (`NEXT_PUBLIC_API_URL`). It does not host the API.
+Independent admin UI in its own GitHub repo and Azure App Service (`consentadmin`). It only talks to **consent_api** over HTTPS (`NEXT_PUBLIC_API_URL`). It does not host or deploy the API.
 
 Local API: `http://localhost:4000/api/v1`  
 Azure API: `https://consentapi-abgrbph5cfccbxe0.eastus2-01.azurewebsites.net/api/v1`
