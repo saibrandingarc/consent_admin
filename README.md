@@ -1,6 +1,9 @@
 # consent_admin
 
-Admin dashboard (Next.js on port 3001 locally). Own Azure App Service.
+Independent admin UI. It only talks to **consent_api** (`NEXT_PUBLIC_API_URL`). It does not host the API.
+
+Local API: `http://localhost:4000/api/v1`  
+Azure API: `https://consentapi-abgrbph5cfccbxe0.eastus2-01.azurewebsites.net/api/v1`
 
 ## Local
 
@@ -10,8 +13,9 @@ cp .env.example .env
 pnpm dev   # http://localhost:3001
 ```
 
-Requires `consent_api` on port 4000.
-
 ## Azure
 
-Node **22** Linux Web App. GitHub secret `AZUREAPPSERVICE_PUBLISHPROFILE`. Optional variables: `AZURE_ADMIN_APP`, `ADMIN_URL`, `WEB_URL`, `API_URL`.
+Node **22** Linux Web App `consentadmin`:
+https://consentadmin-fwb7gmeybmhwhyd0.eastus2-01.azurewebsites.net
+
+Calls API `https://consentapi-abgrbph5cfccbxe0.eastus2-01.azurewebsites.net/api/v1`. Secret `AZUREAPPSERVICE_PUBLISHPROFILE`. App name default `consentadmin`.

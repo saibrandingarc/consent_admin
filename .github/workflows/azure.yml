@@ -17,10 +17,10 @@ jobs:
       - run: corepack enable && corepack prepare pnpm@12.5.1 --activate
       - name: Build
         env:
-          NEXT_PUBLIC_API_URL: ${{ vars.API_URL || 'https://consent-api.azurewebsites.net' }}/api/v1
-          APP_BASE_URL: ${{ vars.ADMIN_URL || 'https://consent-admin.azurewebsites.net' }}
-          ADMIN_URL: ${{ vars.ADMIN_URL || 'https://consent-admin.azurewebsites.net' }}
-          WEB_URL: ${{ vars.WEB_URL || 'https://consent-web.azurewebsites.net' }}
+          NEXT_PUBLIC_API_URL: ${{ vars.API_URL || 'https://consentapi-abgrbph5cfccbxe0.eastus2-01.azurewebsites.net' }}/api/v1
+          APP_BASE_URL: ${{ vars.ADMIN_URL || 'https://consentadmin-fwb7gmeybmhwhyd0.eastus2-01.azurewebsites.net' }}
+          ADMIN_URL: ${{ vars.ADMIN_URL || 'https://consentadmin-fwb7gmeybmhwhyd0.eastus2-01.azurewebsites.net' }}
+          WEB_URL: ${{ vars.WEB_URL || 'https://consentmngtdev-gtfgamd4c9b4bbcr.eastus2-01.azurewebsites.net' }}
           AUTH0_SECRET: build-time-placeholder-secret-32chars
           AUTH0_DOMAIN: example.auth0.com
           AUTH0_CLIENT_ID: build-placeholder-client-id
@@ -32,6 +32,6 @@ jobs:
           bash deploy/azure/assemble.sh admin
       - uses: azure/webapps-deploy@v3.0.8
         with:
-          app-name: ${{ vars.AZURE_ADMIN_APP || 'consent-admin' }}
+          app-name: ${{ vars.AZURE_ADMIN_APP || 'consentadmin' }}
           package: azure-site-admin
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
