@@ -2,10 +2,9 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-APP_NAME="${1:?usage: assemble.sh web|admin}"
-SRC_DEPLOY="${ROOT}/azure-${APP_NAME}"
-SRC_APP="${ROOT}/apps/${APP_NAME}"
-OUT="${ROOT}/azure-site-${APP_NAME}"
+SRC_DEPLOY="${ROOT}/azure-admin"
+SRC_APP="${ROOT}"
+OUT="${ROOT}/azure-site-admin"
 
 write_deploy_meta() {
   local dir="$1"
@@ -83,10 +82,11 @@ if [[ -d "${SRC_APP}/public" ]]; then
 fi
 deref_node_modules "${OUT}"
 copy_next_runtime "${OUT}/node_modules"
+copy_real_pkg dotenv "${OUT}/node_modules" optional
 cp "${ROOT}/deploy/azure/start-next.js" "${OUT}/start-next.js"
 cat > "${OUT}/package.json" <<EOF
 {
-  "name": "consent_${APP_NAME}",
+  "name": "consent_admin",
   "private": true,
   "author": "saibrandingarc",
   "scripts": { "start": "node start-next.js" },

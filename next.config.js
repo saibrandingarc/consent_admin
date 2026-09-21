@@ -1,14 +1,18 @@
-/** @type {import('next').NextConfig} */
 const path = require('path');
-const { config } = require('dotenv');
 
-config({ path: path.join(__dirname, '../../.env') });
+try {
+  require('dotenv').config({ path: path.join(__dirname, '.env') });
+} catch {
+  // Azure App Settings; dotenv is not required at runtime.
+}
+
 process.env.APP_BASE_URL = (process.env.ADMIN_URL || 'http://localhost:3001').replace(/\/$/, '');
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
   transpilePackages: ['@cmp/auth', '@cmp/types', '@cmp/utils'],
-  outputFileTracingRoot: path.join(__dirname, '../../'),
+  outputFileTracingRoot: __dirname,
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     NEXT_PUBLIC_WEB_URL: process.env.WEB_URL,
